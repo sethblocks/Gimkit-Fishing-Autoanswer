@@ -3,6 +3,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import io
 
+url = ""
+name = "John Doe"
+
 gimkit = webdriver.Chrome()
 
 #this section creates a list of questions, each value is [question, answer]
@@ -32,9 +35,9 @@ def find_answer(questions: list, question):
 
 #print(find_answer(questions, "In his notebooks, Da Vinci sketched about things having to do with flying, such as:"))
 #start gimkit game
-gimkit.get("https://www.gimkit.com/join/6463c7df042b6c00384d783c?authuser=0")
+gimkit.get(url)
 nameBox = gimkit.find_element(By.CLASS_NAME, "sc-iQAVnG")
-nameBox.send_keys("Seth")
+nameBox.send_keys(name)
 join = gimkit.find_element(By.CLASS_NAME, "sc-eYulFz")
 join.click()
 try:
